@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './Register.css'
 
-// import firebase from 'firebase/compat/app';
+import firebase from 'firebase/compat/app';
 
-// import { auth, db } from '../../firebase';
+import { auth, db } from '../../../firebase/firebase';
 
 function Register() {
 
@@ -13,39 +13,39 @@ function Register() {
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
 
-    // let navigate = useNavigate();
-    // function goToLogin() {
-    //     navigate.push("/login");
-    // }
+    let navigate = useNavigate();
+    function goToLogin() {
+        navigate("/login");
+    }
 
     const handleOnClick = (e) => {
         e.preventDefault()
-        // if(username && phone && email && pass) {
-        //     auth.createUserWithEmailAndPassword(email, pass)
-        //     .then(res => {
-        //         console.log(res.user)
-        //         if(res) {
-        //             db.collection('users').doc(res.user.uid).set({
-        //                 uid: res.user.uid,
-        //                 name: '',
-        //                 username: username,
-        //                 email: email,
-        //                 phone: phone,
-        //                 profilePhoto: '',
-        //                 dateJoined: firebase.firestore.FieldValue.serverTimestamp(),
-        //             });
-        //         }              
-        //     })
-        //     .then(() => {
-        //         goToLogin();
-        //     })
-        //     .catch((er) => {
-        //         console.log(er)
-        //         alert(er)
-        //     })
-        // } else {
-        //     alert('Enter all the fields')
-        // }    
+        if(username && phone && email && pass) {
+            auth.createUserWithEmailAndPassword(email, pass)
+            .then(res => {
+                console.log(res.user)
+                if(res) {
+                    db.collection('users').doc(res.user.uid).set({
+                        uid: res.user.uid,
+                        name: '',
+                        username: username,
+                        email: email,
+                        phone: phone,
+                        profilePhoto: '',
+                        dateJoined: firebase.firestore.FieldValue.serverTimestamp(),
+                    });
+                }              
+            })
+            .then(() => {
+                goToLogin();
+            })
+            .catch((er) => {
+                console.log(er)
+                alert(er)
+            })
+        } else {
+            alert('Enter all the fields')
+        }    
     }
 
 
@@ -69,7 +69,7 @@ function Register() {
     
                     <div className='password'>
                         <label>Password</label><br/>
-                        <input value={pass} onChange={(e) => setPass(e.target.value)}type="password" name="password" required />
+                        <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" name="password" required />
                     </div>
                     
                     <div className='register-button'>

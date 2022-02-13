@@ -24,6 +24,7 @@ function AuthContextProvider(props) {
     const handleUser = (user) => {
         setCurrentUser(user)
         localStorage.setItem('authUser', user)
+        console.log(currentUser)
     }
 
     useEffect(() => {

@@ -101,9 +101,10 @@
     color: #ffffff;
 }
 
-.book_btn {
+.about_btn {
     background-color: #ffffff;
     color: var(--text);
+    font-size: 1rem !important;
 }
 
 .landing_btns button:hover {

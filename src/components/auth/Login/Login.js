@@ -1,46 +1,59 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { Link , useNavigate} from 'react-router-dom';
 
 import './Login.css'
 
+import { AuthContext } from '../../../context/AuthContext'
+import { auth } from '../../../firebase/firebase';
+
 function Login() {
 
+    const [email, setEmail] = useState('')
+    const [pass, setPass] = useState('')
 
-    // const handleOnClick = (e) => {
-    //     e.preventDefault()
-    //     if(email && pass) {
-    //         auth.signInWithEmailAndPassword(email, pass)
-    //             .then(res => {
-    //                 console.log(res.user)
-    //                 handleUser(res.user)
-    //                 // if(res) {
+    const { handleUser } = useContext(AuthContext);
 
-    //                 // }              
-    //             })
-    //             .then(() => {
-    //                 goToHome();
-    //             })
-    //             .catch((er) => {
-    //                 console.log(er)
-    //                 alert(er)
-    //             })
-    //     } else {
-    //         alert('Enter email and password')
-    //     }    
-    // }
+    let navigate = useNavigate();
+    function goToHome() {
+        navigate("/home");
+    }
+
+    const handleOnClick = (e) => {
+        e.preventDefault()
+        if(email && pass) {
+            auth.signInWithEmailAndPassword(email, pass)
+                .then(res => {
+                    console.log(res.user)
+                    handleUser(res.user)
+                    if(res) {
+                        //
+
+                     }              
+                })
+                .then(() => {
+                    goToHome();
+                })
+                .catch((er) => {
+                    console.log(er)
+                    alert(er)
+                })
+        } else {
+            alert('Enter email and password')
+        }    
+    }
 
 
   return <div className="login">
             <h2>Sign in to us</h2>
             <div className='login-container'>
-                <form action="/" className='form'>
+                <form onSubmit={handleOnClick} className='form'>
                     <div className='username'>
-                        <label>Username or email address</label><br/>
-                        <input className='login-input' type="text" name="first_name" required />
+                        <label>Email address</label><br/>
+                        <input value={email} onChange={(e) => setEmail(e.target.value)}  className='login-input' type="text" name="first_name" required />
                     </div>
                     <div className='password'>
                         <label>Password</label>
-                        <input className='login-input' type="password" name="password" required />
+                        <input value={pass} onChange={(e) => setPass(e.target.value)} className='login-input' type="password" name="password" required />
                     </div>
                     <div className='login-button'>
                         <button id="sub_btn" type="submit">Login</button>

@@ -19,7 +19,26 @@
     border-radius: 50%;
     transition: ease-in-out 0.1s;
 }
+
+.cart-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.55rem; 
+    cursor: pointer;
+    color: var(--primary-color);
+    padding: 0.5rem;
+    box-sizing: content-box;
+    border-radius: 50%;
+    transition: ease-in-out 0.1s;
+}
+
 .menu_back:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.cart-icon:hover {
     background-color: var(--primary-color);
     color: #ffffff;
 }

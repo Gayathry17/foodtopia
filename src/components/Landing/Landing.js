@@ -116,7 +116,7 @@ function Landing() {
                             <button className='menu_btn'>View Menu</button>
                         </Link>
                         <Link to='/book'>
-                            <button className='book_btn'>Book A Table</button>
+                            <button className='about_btn'>About</button>
                         </Link>
                     </div>
                     <div className='landing__review'>
