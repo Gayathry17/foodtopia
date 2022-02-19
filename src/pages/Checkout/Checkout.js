@@ -1,8 +1,13 @@
-import React from 'react'
+import React from 'react';
+
+import './Checkout.css'
 
 function Checkout() {
   return (
-    <div>Checkout</div>
+    <div className='checkout'>
+        <p>hello</p>
+        <p>hello</p>
+    </div>
   )
 }
 

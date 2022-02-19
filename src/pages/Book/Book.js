@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import { AuthContext } from '../../context/AuthContext';
+import { db } from '../../firebase/firebase';
 import logo from '../../assets/logo.png'
 import './Book.css'
 
@@ -15,8 +16,29 @@ function Book() {
     navigate("/");
 }
 
-  const handleContact = () => {
-    alert('Submitted')
+const { currentUser } = useContext(AuthContext);
+
+  const handleContact = (e) => {
+      e.preventDefault()
+      if(name && email && msg) {
+        if (new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email)) {
+            
+            db.collection('msg').add({
+                name: name,
+                email: email,
+                msg: msg,
+                uid: currentUser.uid
+            }).then(() => {
+                alert('Submitted')
+            })
+        } else {
+            alert('Enter valid Email')
+        }
+
+      }else {
+        alert('Enter all the fields')
+    }    
+          
   }
 
   return (
