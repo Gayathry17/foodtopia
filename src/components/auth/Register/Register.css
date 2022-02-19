@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    background-color: var(--bg-color);
 }
 
 .auth__Logo {
@@ -61,7 +62,7 @@ form {
 }
 form label {
     float: left;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 0.5rem;
     padding: 0
 }
@@ -74,7 +75,9 @@ form label {
 input {
     width: 100%;
     padding: 0.5rem;
+    font-size: 1.2rem;
     border-radius: 5px;
+    border: 1px solid var(--secondary-color) !important;
     outline: none;
     border: none
 }
