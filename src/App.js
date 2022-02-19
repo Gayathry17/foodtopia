@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import { Landing, Login, Register, Cart, Profile } from './components'
-import { Book, Menu, Reviews } from './pages'
+import { Book, Menu, Reviews, Checkout } from './pages'
 
 import PrivateRoute from "./utils/PrivateRoute"
 
@@ -48,6 +48,13 @@ function App() {
               element={
                 <PrivateRoute>
                   <Profile />
+                </PrivateRoute>
+              }
+            />
+            <Route path="checkout" 
+              element={
+                <PrivateRoute>
+                  <Checkout />
                 </PrivateRoute>
               }
             />
