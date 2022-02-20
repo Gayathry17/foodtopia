@@ -71,7 +71,7 @@ function Register() {
                     </div>
                     <div className='location'>
                         <label>Phone Number</label><br/>
-                        <input  value={phone} onChange={(e) => setPhone(e.target.value)} type="phonenumber" name="Phonenumber" required />
+                        <input  value={phone} onChange={(e) => setPhone(e.target.value.replace(/[^0-9]/g,""))} type="phonenumber" name="Phonenumber" required />
                     </div>
     
                     <div className='password'>
