@@ -1,20 +1,17 @@
-import React, { useState,useContext, useEffect } from "react";
-import { Link,useParams } from "react-router-dom";
+import React, { useState, useContext, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import { IoArrowBackOutline } from "react-icons/io5";
 import StarRating from "./StarRating.js";
 import "./Reviews.css";
-import firebase from 'firebase/compat/app';
+import firebase from "firebase/compat/app";
 
-import { db } from '../../firebase/firebase';
-import { AuthContext } from '../../context/AuthContext'
-
-
+import { db } from "../../firebase/firebase";
+import { AuthContext } from "../../context/AuthContext";
 
 function Reviews() {
-
-  const [review, setReview] = useState('');
-  const [info, setInfo] = useState([])
-  const [reviews, setReviews] = useState([])
+  const [review, setReview] = useState("");
+  const [info, setInfo] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const { id } = useParams();
 
   const { currentUser } = useContext(AuthContext);
