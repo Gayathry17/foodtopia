@@ -1,20 +1,35 @@
 .checkout {
-    height: 100vh;
-    background-color: var(--bg-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
+  height: 100vh;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.checkout_header > h2{
-    font-size: 3.5rem;
-    font-family: 'Nunito', sans-serif;
+.checkout_header > h2 {
+  font-size: 3.5rem;
+  font-family: "Nunito", sans-serif;
 }
 
 .checkout_order {
-    font-size: 2rem;
-    font-family: 'Nunito', sans-serif;
-    margin-top: 1.5rem;
+  font-size: 2rem;
+  font-family: "Nunito", sans-serif;
+  margin-top: 1.5rem;
+}
+
+.checkout_goBackHome {
+  font-size: 18px !important;
+  margin: 2rem;
+  padding: 0.8rem;
+  background-color: var(--tertiary-color);
+  color: #ffffff;
+  border-radius: 35px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 80%;
+}
+
+.checkout_goBackHome button {
+  font-size: 1rem !important;
 }
