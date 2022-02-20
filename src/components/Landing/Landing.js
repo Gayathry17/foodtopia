@@ -134,7 +134,7 @@ function Landing() {
             </div>
             <div className='landing__container'>
                 <div className='landing__containerLeft'>
-                    <h1>it's not just a Food, it's an Experience.</h1>
+                    <h1>It's not just Food, it's an Experience.</h1>
 
                     <div className='landing_btns'>
                         <Link to='/menu'>
