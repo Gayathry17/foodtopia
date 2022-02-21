@@ -27,28 +27,32 @@ function Register() {
     const handleOnClick = (e) => {
         e.preventDefault()
         if(username && phone && email && pass) {
-            auth.createUserWithEmailAndPassword(email, pass)
-            .then(res => {
-                console.log(res.user)
-                if(res) {
-                    db.collection('users').doc(res.user.uid).set({
-                        uid: res.user.uid,
-                        name: '',
-                        username: username,
-                        email: email,
-                        phone: phone,
-                        profilePhoto: '',
-                        dateJoined: firebase.firestore.FieldValue.serverTimestamp(),
-                    });
-                }              
-            })
-            .then(() => {
-                goToLogin();
-            })
-            .catch((er) => {
-                console.log(er)
-                alert(er)
-            })
+            if(phone.length === 10) {
+                auth.createUserWithEmailAndPassword(email, pass)
+                .then(res => {
+                    console.log(res.user)
+                    if(res) {
+                        db.collection('users').doc(res.user.uid).set({
+                            uid: res.user.uid,
+                            name: '',
+                            username: username,
+                            email: email,
+                            phone: phone,
+                            profilePhoto: '',
+                            dateJoined: firebase.firestore.FieldValue.serverTimestamp(),
+                        });
+                    }              
+                })
+                .then(() => {
+                    goToLogin();
+                })
+                .catch((er) => {
+                    console.log(er)
+                    alert(er)
+                })
+            } else {
+                alert('Phone number invalid')
+            }
         } else {
             alert('Enter all the fields')
         }    
